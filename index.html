@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Der Werther AR Modell</title>
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      background-color: #000;
+      padding: 2rem 1.5rem 1rem; /* Abstand oben und seitlich */
+    }
+
+    header img {
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      height: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    model-viewer {
+      width: 100%;
+      max-width: 500px;
+      height: 500px;
+      margin-top: 2rem;
+    }
+
+    .ar-button {
+      margin-top: 1rem;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+    }
+
+    .ar-button img {
+      width: 50px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="assets/header.png" alt="Logo" />
+  </header>
+
+  <model-viewer
+    id="modelViewer"
+    src="assets/jubin_270.glb"
+    ios-src="assets/jubin_270.usdz"
+    alt="Ein 3D-Modell"
+    ar
+    ar-modes="scene-viewer quick-look webxr"
+    camera-controls
+    autoplay
+    shadow-intensity="1"
+    environment-image="neutral"
+    camera-target="0m 0m 0m"
+    camera-orbit="0deg 75deg auto"
+  >
+  </model-viewer>
+
+  <!-- Funktionaler AR-Button außerhalb von model-viewer -->
+  <button class="ar-button" onclick="document.getElementById('modelViewer').activateAR()">
+    <img src="assets/ar-sweep_pink.png" alt="AR starten" />
+  </button>
+
+</body>
+</html>
